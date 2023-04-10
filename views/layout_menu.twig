@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{{ title }}</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel='icon' href='/images/logo.png' />
+  </head>
+  <body>
+    <header>
+        <div class="wrap">
+            <div class="header-nav-wrap">
+                <div class="header-log">
+                    <img class="logo" src="/images/logo.png" alt="">
+                    <p>Archem</p>
+                </div>
+                <div class="header-nav">
+                    <nav class="menu">
+                        <ul class="ul-menu">
+                        {% if user.admin == true %}
+                            <li>
+                                <a href="{{user.url}}">Список сеансов</a>
+                            </li>
+                            <li>
+                                <a href="{{user.url}}/create/seans">Создать сеанс</a>
+                            </li>
+                            <li>
+                                <a href="{{user.url}}/create/film">Добавить фильм</a>
+                            </li>
+                            <li>
+                                <a href="/">Выйти</a>
+                            </li>
+                          {% else %}
+                            <li>
+                                <a href="{{user.url}}">Профиль</a>
+                            </li>
+                            <li>
+                                <a href="{{user.url}}/ticket">Ваши билеты</a>
+                            </li>
+                            <li>
+                                <a href="{{user.url}}/seans">Ближайшие сеансы</a>
+                            </li>
+                          {% endif %}
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main>
+    {% block body %}{% endblock %}
+    </main>
+    <footer>
+    </footer>
+  </body>
+</html>

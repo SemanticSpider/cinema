@@ -1,0 +1,53 @@
+{% extends "layout_menu.twig" %}
+
+{% block body %}
+    <h1>{{title}}</h1>
+    <div class='form-create'> 
+        <form action='' method='post'>
+            <div class="wrapper">
+                <div class="inp">
+                    <label for="film"><p>Фильм:</p></label>
+                    <select class='film-select' type='select' name='film' placeholder='Film' required='true'>
+                        {% for film in films %}
+                            {% if (film.name == seans.film.name) %}
+                                <option value='{{film.name}}' selected='selected'>{{film.name}} </option>    
+                            {% else %}
+                                <option value='{{film.name}}'>{{film.name}}</option>
+                            {% endif %}
+                        {% endfor %}
+                    </select>
+                </div> 
+                <div class="inp">
+                    <label for="date"><p>Дата:</p></label>
+                    {% if seans %}
+                        <input type="datetime-local" id="date" name="date" value='{{date}}'>
+                    {% else %}
+                        <input type="datetime-local" id="date" name="date">
+                    {% endif %}
+                </div>
+                <div class="inp">
+                    <label for="hall"><p>Зал:</p></label>
+                    {% if seans %}
+                        <input type="text" id="hall" name="hall" value={{seans.hall}}></input>
+                    {% else %}
+                        <input type="text" id="hall" name="hall"></input>
+                    {% endif %}
+                </div>
+                <div class="inp">
+                    <label for="col_place"><p>Количество мест:</p></label>
+                    {% if seans %}
+                        <input type="text" id="col_place" name="col_place" value={{seans.col_place}}></input>
+                    {% else %}
+                        <input type="text" id="col_place" name="col_place"></input>
+                    {% endif %}
+                </div>
+                {% if seans %}
+                    <input type="submit" class="submit_without_margin submit-but" value="Обновить">
+                {% else %}
+                    <input type="submit" class="submit_without_margin submit-but" value="Создать">
+                {% endif %}
+            </div>
+        </form>
+    </div>
+
+{% endblock %}

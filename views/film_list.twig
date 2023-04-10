@@ -1,0 +1,11 @@
+{% extends 'layout_menu.twig' %}
+
+{% block body %}
+    <h1> {{title}} </h1>
+    {% for item in films %}
+        <div class="film">
+            <p> {{item.name}} </p>
+        </div> 
+    {% endfor %}
+
+{% endblock %}

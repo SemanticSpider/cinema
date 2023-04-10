@@ -1,0 +1,31 @@
+{% extends "layout_registr.twig" %}
+
+{% block body %}
+    <center>
+    <div class="auth">
+    <p class="registr-p">Вход</p>
+    <div class='auth-form'>
+        <form method="post">
+            <div class="div-registr-form">
+                <div class="registr">
+                    <label for="registr_login"><p class="registr-p">Логин</p></label>
+                    <input class="registr-input" type="text" id="registr_login" name="registr_login" {% if user %} value={{user.login}}{% endif %}>
+                </div>
+                {% if user %}
+                    <p> {{title}} </p>
+                {% endif %}
+                
+                <div class="registr">
+                    <label for="registr_password"><p class="registr-p">Пароль</p></label>
+                    <input class="registr-input" type="text" id="registr_password" name="registr_password">
+                </div>
+                <button type="submit" id="submit" class="submit">Войти</button>
+            </div>
+        </form>
+
+    </div> 
+    </div>
+    <div class="reg">
+        <a href="/auth/registration">Регистрация</a>
+    </div>
+{% endblock %}

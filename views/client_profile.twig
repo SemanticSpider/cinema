@@ -1,0 +1,17 @@
+{% extends "layout.twig" %}
+
+{% block body %}
+        <div class="profile">
+            <div class="profile-img">
+                <img src="/images/pers.png" alt="">
+                <a href="/">Выход</a>
+            </div>
+
+            <div class="inf">
+                <h1 class="title">Добро пожаловать, {{user.login}}</h1>
+                <p>Ваш пароль: {{user.password}}</p>
+                <p>Вы приобрели {{tickets}} билетов</p>
+                <p>Спасибо, что пользуетесь услугами нашего кинотеатра</p>
+            </div>
+        </div>
+{% endblock %}

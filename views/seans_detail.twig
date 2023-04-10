@@ -1,0 +1,36 @@
+{% extends 'layout_menu.twig' %}
+
+{% block body %}
+
+    {% if user.admin == true %}
+        <h1>Детали о сеансе</h1>
+        <p>Фильм: {{seans.film.name}}</p>
+        <p>Дата: {{seans.date}}</p>
+        <p>Зал: {{seans.hall}}</p>
+        <p>Количество мест: {{seans.col_place}}</p>
+        <div class='button_list'>
+            <a class="submit_without_margin" href="{{user.url}}/{{seans.url}}/update">Обновить данные сеанса </a>
+        </div>
+    {% else %}
+            <h1>Покупка билета на {{seans.film.name}}</h1>
+            <p>Дата: {{seans.date}}</p>
+            <p>Зал: {{seans.hall}}</p>
+        {% if freedom_place %}
+            <p>Выберите место:</p>
+            <form method="POST" name='form-seans' class='form-seans'>
+                <div class='form-seans'> 
+                <select type="select" name="place" required="true" multiple='6'>
+                    {% for place in freedom_place %}
+                        <option value = {{place}}>{{place}}</option>
+                    {% endfor %}
+                </select>
+                <input type="submit" class="submit" value="Купить"> 
+                </div>
+            </form>
+        {% else %}
+            <p>Все билеты проданы</p>
+        {% endif %}
+
+    {% endif %}
+
+{% endblock %}

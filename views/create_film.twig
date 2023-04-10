@@ -1,0 +1,29 @@
+{% extends "layout_menu.twig" %}
+
+{% block body %}
+    <h1>{{title}}</h1>
+    <div class='form-create'> 
+        <form action='' method='post'>
+            <div class="wrapper">
+                <div class="inp">
+                    <label for="name"><p>Фильм:</p></label>
+                    <input type="text" id="name" name="name">
+                </div> 
+                <div class="inp">
+                    <label for="genre"><p>Жанр:</p></label>
+                    <input type="text" id="genre" name="genre">
+                </div>
+                <div class="inp">
+                    <label for="director"><p>Режиссер:</p></label>
+                    <input type="text" id="director" name="director"></input>
+                </div>
+                {# <div class="inp">
+                    <label for="img">Image:</label>
+                    <input type="text" id="img" name="img"></input>
+                </div> #}
+                <button type="submit" class="submit_without_margin submit-but">Создать</button>
+            </div>
+        </form>
+    </div>
+
+{% endblock %}

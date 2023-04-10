@@ -1,0 +1,19 @@
+{% extends "layout_menu.twig" %}
+
+{% block body %}
+    <h1>Удаление сеанса</h1>
+    {% if tickets %}
+        <p>Вы не можете удалить {{seans.film.name}}, потому что на данный сеанс куплены следующие билеты:</p>
+            {% for ticket in tickets %}
+                    <div class="ticket"><p>{{ticket.user.login}}</p><p>{{ticket.place}} место</p></div>
+            {% endfor %}
+    {% else %}
+        <div class='form-group'>
+            <form method='POST' action=''>
+                <input class='form-control' type='hidden' name='id_seans' value={{seans._id}}>
+                <button type='submit' class='submit_without_margin'>Удалить</button>
+            </form>
+        </div>
+    {% endif %}
+    
+{% endblock %}

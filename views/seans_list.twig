@@ -1,0 +1,16 @@
+{% extends 'layout_menu.twig' %}
+
+{% block body %}
+    <h1 class='seans-list-h1'>Сипсок ближайших сеансов</h1>
+    <div class='seans-ul'>
+        {% for item in seans %}
+            <div class='seans-wrap'>
+                    <div class='seans'>
+                        <a href='{{user.url}}/seans/{{item.url}}'> {{item.film.name}}</a>
+                        <p>Количество мест: {{item.col_place}}</p>
+                        <p>{{item.date}}</p>
+                    </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

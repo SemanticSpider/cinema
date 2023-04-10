@@ -1,0 +1,16 @@
+{% extends "layout_menu.twig" %}
+
+{% block body %}
+    <h1>Список ваших билетов</h1>
+    {% set i = 1 %}
+    {% for ticket in tickets %}
+    <div class="ticket">
+        <p class="date">{{ticket.date}}</p>
+        <a href="{{user.url}}/film/{{ticket.seans.film._id}}" class="film">{{ticket.film.name}}</a>
+        <p class="place">{{ticket.seans.hall}} зал</p>
+        <p class="place">{{ticket.place}} место</p>
+        {% set i = i + 1 %}
+    </div>    
+    {% endfor %}
+    
+{% endblock %}
